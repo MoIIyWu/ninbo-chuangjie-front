@@ -34,6 +34,10 @@ const router = new VueRouter({
       path: '/contact',
       component: () => import('@/views/contact.vue'),
     },
+    {
+      path: '/productDetail',
+      component: () => import('@/views/productDetail.vue'),
+    },
   ],
 })
 export default router

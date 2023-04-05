@@ -3,25 +3,42 @@
     <div class="wrap">
       <div class="container">
         <ul class="menu">
-          <li><a href="Default.aspx" class="bt">首页</a></li>
-
-          <li><a href="abuotus.aspx?ClassID=2" class="bt">关于我们</a></li>
-
-          <li><a href="News.aspx?ClassID=3" class="bt">新闻中心</a></li>
-
-          <li>
-            <a href="Product.aspx" class="bt">产品展示</a>
-
-            <a href="product.aspx?typeid=1" title="电磁脉冲阀"> 电磁脉冲阀</a>
-
-            <a href="product.aspx?typeid=2" title="除尘布袋"> 除尘布袋</a>
-
-            <a href="product.aspx?typeid=3" title="除尘配件"> 除尘配件</a>
+          <li
+            @click="$router.push('/home')"
+            :class="$route.path === '/home' ? 'active' : ''"
+          >
+            首页
           </li>
-
-          <li><a href="PicList.aspx?ClassID=5" class="bt">行业应用</a></li>
-
-          <li><a href="lxwm.aspx?ClassID=6" class="bt">联系我们</a></li>
+          <li
+            @click="$router.push('/about')"
+            :class="$route.path === '/about' ? 'active' : ''"
+          >
+            关于我们
+          </li>
+          <li
+            @click="$router.push('/news')"
+            :class="$route.path === '/news' ? 'active' : ''"
+          >
+            新闻中心
+          </li>
+          <li
+            @click="$router.push('/products')"
+            :class="$route.path === '/products' ? 'active' : ''"
+          >
+            产品展示
+          </li>
+          <li
+            @click="$router.push('/application')"
+            :class="$route.path === '/application' ? 'active' : ''"
+          >
+            行业应用
+          </li>
+          <li
+            @click="$router.push('/contact')"
+            :class="$route.path === '/contact' ? 'active' : ''"
+          >
+            联系我们
+          </li>
         </ul>
         <div class="footer-contact">
           <p class="p-01">总机</p>
@@ -75,21 +92,26 @@ export default {
       line-height: 26px;
       li {
         margin-right: 50px;
-        .bt {
-          font-size: 20px;
+        cursor: pointer;
+        font-size: 17px;
+        &.active {
+          font-weight: bold;
+          font-size: 22px;
+        }
+        &:hover {
+          color: #fff;
+          text-decoration: underline;
+          font-size: 22px;
           margin-bottom: 15px;
+          transition: all 0.2s linear;
         }
       }
       a {
         color: #a5a5a5;
         display: block;
-        font-size: 14px;
         -webkit-transition: all 0.5s;
         transition: all 0.5s;
         padding-right: 10px;
-        &:hover {
-          color: #fff;
-        }
       }
     }
     .footer-contact {
