@@ -1,0 +1,235 @@
+@charset "utf-8";
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+#bsWXBox {
+  box-sizing: content-box;
+}
+
+ul {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+input{
+  outline: none;
+  text-indent: 20px;
+}
+
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+em,
+img,
+strong,
+b,
+small,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+sub,
+sup,
+tt,
+var,
+del,
+dfn,
+ins,
+kbd,
+q,
+s,
+samp,
+strike,
+applet,
+object,
+iframe,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+mark,
+audio,
+video,
+input,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 100px;
+}
+
+body {
+  font-family: 'microsoft yahei', arial;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  width: 100%;
+  background: #fff;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  outline: 0;
+  color: #666;
+}
+
+a:hover,
+a:active,
+a:focus {
+  color: #666;
+  text-decoration: none;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+input,
+textarea {
+  font-size: 14px;
+  outline: 0;
+  overflow: hidden;
+  font-family: arial, 'microsoft yahei';
+}
+
+input[type='reset'],
+input[type='button'],
+input[type='submit'],
+input[type='radio'] {
+  cursor: pointer;
+  outline: 0;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  position: relative;
+  vertical-align: middle;
+  margin-top: -2px;
+  margin-bottom: 1px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+textarea,
+input[type='email'],
+input[type='date'],
+input[type='password'],
+input[type='text'] {
+  padding: 0;
+  color: #666;
+  outline: 0;
+}
+
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+input[type='text'],
+select,
+button {
+  -webkit-appearance: none;
+}
+
+input,
+select,
+textarea {
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  border-radius: 0;
+}
+
+::-webkit-input-placeholder {
+  color: #666;
+}
+
+:-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #666;
+}
