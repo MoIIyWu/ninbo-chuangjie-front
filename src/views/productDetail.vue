@@ -23,7 +23,7 @@
       </div>
       <div class="footer">
         <div class="img-content">
-          <img src="@/images/bigImg.jpg" />
+          <img src="@/assets/bigImg.jpg" />
         </div>
         <div class="text">
           <div class="bt">DMFY50S</div>
@@ -33,9 +33,24 @@
           <div class="button">
             详情咨询
             <!--<div class="button2"> <a href="#">咨询客服</a> </div>-->
+            <img src="@/assets/more5.png" alt="" />
           </div>
         </div>
       </div>
+    </div>
+    <div class="pro-nav">
+      <div class="container">
+        <ul>
+          <li class="sel">产品参数</li>
+          <!--<li><a href="javascript:;">安装尺寸</a></li>
+                                <li><a href="javascript:;">型号说明</a></li>
+                                <li><a href="javascript:;">产品用途</a></li>
+                                <li><a href="javascript:;">下载文档</a></li>-->
+        </ul>
+      </div>
+    </div>
+    <div class="img">
+      <img src="@/assets/productParam.jpg" alt="" />
     </div>
   </div>
 </template>
@@ -108,8 +123,43 @@ export default {
         text-align: center;
         line-height: 50px;
         color: #ebebeb;
-        background: #c51f17 url('~@/images/more5.png') no-repeat right;
+        // background: #c51f17 url('~@/assets/more5.png') no-repeat right;
+        background: #c51f17;
+        cursor: pointer;
+        img {
+          margin-left: 30px;
+        }
       }
+    }
+  }
+  .pro-nav {
+    background: #5f5f5f;
+    .container {
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 15px;
+      padding-left: 30px;
+      width: 100%;
+      ul {
+        li {
+          width: 200px;
+          text-align: center;
+          line-height: 62px;
+          border-right: 1px solid #fff;
+          color: #fff;
+        }
+        .sel {
+          background: #c51f17;
+        }
+      }
+    }
+  }
+  .img {
+    display: flex;
+    justify-content: center;
+    img {
+      border: 0;
+      max-width: 100%;
     }
   }
 }

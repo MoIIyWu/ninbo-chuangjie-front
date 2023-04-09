@@ -5,101 +5,20 @@
       <div class="jsh">NEWS</div>
     </div>
     <ul class="news-list">
-      <li class="news-box">
-        <img src="@/images/newlist.jpg" class="middleCenter" alt="" />
-
+      <li class="news-box" v-for="item in newsList" :key="item.id">
+        <img
+          v-imagerror="defaultImg"
+          :src="`${baseUrl}/common/open/download?name=${item.fileUrl}`"
+          class="middleCenter"
+          alt=""
+        />
         <div class="text">
-          <div class="date">2021-05-07</div>
-          <div class="bt">除尘布袋应该如何选择？</div>
-          <div class="jsh">
-            1、常温布袋：常温布袋主要由涤纶、丙纶、亚克力等纤维经无纺、纺织工艺制成，具有透气性好、表面平整光滑、尺寸稳定性好、容易剥离粉尘等优良性能。主要用于一般工业企业有粉尘污染的行业除尘及常温烟气治理等领域。
-            2、中温布袋：随着***对环保重视程度的提高，尤其是近几年袋式除尘技术行业的飞速发展，中国开始使用进口的合成纤维开发了可以适应较为恶劣的工况条件，使用寿命的过滤材料。目前较为常见的中温滤材有芳纶纤维、PPS系列纤维通过浸扎、防油、防腐蚀工艺处理，从而达到理想的效果。
-            3、高温布袋：高温布袋主要由P84、膨体玻璃纤维、玻璃纤维等耐高温纤维经过纺织、无纺工艺加工而成，具有热稳定性好、使用寿命长等特点。主要应用于各种高温烟气状况下的除尘器。
+          <!-- <div class="date">{{ item.createTime }}</div> -->
+          <div class="date">
+            {{ $moment(item.createTime).format('YYYY-MM-DD') }}
           </div>
-          <div class="more"></div>
-        </div>
-      </li>
-      <li class="news-box">
-        <img src="@/images/newlist.jpg" class="middleCenter" alt="" />
-
-        <div class="text">
-          <div class="date">2021-05-07</div>
-          <div class="bt">除尘布袋应该如何选择？</div>
-          <div class="jsh">
-            1、常温布袋：常温布袋主要由涤纶、丙纶、亚克力等纤维经无纺、纺织工艺制成，具有透气性好、表面平整光滑、尺寸稳定性好、容易剥离粉尘等优良性能。主要用于一般工业企业有粉尘污染的行业除尘及常温烟气治理等领域。
-            2、中温布袋：随着***对环保重视程度的提高，尤其是近几年袋式除尘技术行业的飞速发展，中国开始使用进口的合成纤维开发了可以适应较为恶劣的工况条件，使用寿命的过滤材料。目前较为常见的中温滤材有芳纶纤维、PPS系列纤维通过浸扎、防油、防腐蚀工艺处理，从而达到理想的效果。
-            3、高温布袋：高温布袋主要由P84、膨体玻璃纤维、玻璃纤维等耐高温纤维经过纺织、无纺工艺加工而成，具有热稳定性好、使用寿命长等特点。主要应用于各种高温烟气状况下的除尘器。
-          </div>
-          <div class="more"></div>
-        </div>
-      </li>
-      <li class="news-box">
-        <img src="@/images/newlist.jpg" class="middleCenter" alt="" />
-
-        <div class="text">
-          <div class="date">2021-05-07</div>
-          <div class="bt">除尘布袋应该如何选择？</div>
-          <div class="jsh">
-            1、常温布袋：常温布袋主要由涤纶、丙纶、亚克力等纤维经无纺、纺织工艺制成，具有透气性好、表面平整光滑、尺寸稳定性好、容易剥离粉尘等优良性能。主要用于一般工业企业有粉尘污染的行业除尘及常温烟气治理等领域。
-            2、中温布袋：随着***对环保重视程度的提高，尤其是近几年袋式除尘技术行业的飞速发展，中国开始使用进口的合成纤维开发了可以适应较为恶劣的工况条件，使用寿命的过滤材料。目前较为常见的中温滤材有芳纶纤维、PPS系列纤维通过浸扎、防油、防腐蚀工艺处理，从而达到理想的效果。
-            3、高温布袋：高温布袋主要由P84、膨体玻璃纤维、玻璃纤维等耐高温纤维经过纺织、无纺工艺加工而成，具有热稳定性好、使用寿命长等特点。主要应用于各种高温烟气状况下的除尘器。
-          </div>
-          <div class="more"></div>
-        </div>
-      </li>
-      <li class="news-box">
-        <img src="@/images/newlist.jpg" class="middleCenter" alt="" />
-
-        <div class="text">
-          <div class="date">2021-05-07</div>
-          <div class="bt">除尘布袋应该如何选择？</div>
-          <div class="jsh">
-            1、常温布袋：常温布袋主要由涤纶、丙纶、亚克力等纤维经无纺、纺织工艺制成，具有透气性好、表面平整光滑、尺寸稳定性好、容易剥离粉尘等优良性能。主要用于一般工业企业有粉尘污染的行业除尘及常温烟气治理等领域。
-            2、中温布袋：随着***对环保重视程度的提高，尤其是近几年袋式除尘技术行业的飞速发展，中国开始使用进口的合成纤维开发了可以适应较为恶劣的工况条件，使用寿命的过滤材料。目前较为常见的中温滤材有芳纶纤维、PPS系列纤维通过浸扎、防油、防腐蚀工艺处理，从而达到理想的效果。
-            3、高温布袋：高温布袋主要由P84、膨体玻璃纤维、玻璃纤维等耐高温纤维经过纺织、无纺工艺加工而成，具有热稳定性好、使用寿命长等特点。主要应用于各种高温烟气状况下的除尘器。
-          </div>
-          <div class="more"></div>
-        </div>
-      </li>
-      <li class="news-box">
-        <img src="@/images/newlist.jpg" class="middleCenter" alt="" />
-
-        <div class="text">
-          <div class="date">2021-05-07</div>
-          <div class="bt">除尘布袋应该如何选择？</div>
-          <div class="jsh">
-            1、常温布袋：常温布袋主要由涤纶、丙纶、亚克力等纤维经无纺、纺织工艺制成，具有透气性好、表面平整光滑、尺寸稳定性好、容易剥离粉尘等优良性能。主要用于一般工业企业有粉尘污染的行业除尘及常温烟气治理等领域。
-            2、中温布袋：随着***对环保重视程度的提高，尤其是近几年袋式除尘技术行业的飞速发展，中国开始使用进口的合成纤维开发了可以适应较为恶劣的工况条件，使用寿命的过滤材料。目前较为常见的中温滤材有芳纶纤维、PPS系列纤维通过浸扎、防油、防腐蚀工艺处理，从而达到理想的效果。
-            3、高温布袋：高温布袋主要由P84、膨体玻璃纤维、玻璃纤维等耐高温纤维经过纺织、无纺工艺加工而成，具有热稳定性好、使用寿命长等特点。主要应用于各种高温烟气状况下的除尘器。
-          </div>
-          <div class="more"></div>
-        </div>
-      </li>
-      <li class="news-box">
-        <img src="@/images/newlist.jpg" class="middleCenter" alt="" />
-
-        <div class="text">
-          <div class="date">2021-05-07</div>
-          <div class="bt">除尘布袋应该如何选择？</div>
-          <div class="jsh">
-            1、常温布袋：常温布袋主要由涤纶、丙纶、亚克力等纤维经无纺、纺织工艺制成，具有透气性好、表面平整光滑、尺寸稳定性好、容易剥离粉尘等优良性能。主要用于一般工业企业有粉尘污染的行业除尘及常温烟气治理等领域。
-            2、中温布袋：随着***对环保重视程度的提高，尤其是近几年袋式除尘技术行业的飞速发展，中国开始使用进口的合成纤维开发了可以适应较为恶劣的工况条件，使用寿命的过滤材料。目前较为常见的中温滤材有芳纶纤维、PPS系列纤维通过浸扎、防油、防腐蚀工艺处理，从而达到理想的效果。
-            3、高温布袋：高温布袋主要由P84、膨体玻璃纤维、玻璃纤维等耐高温纤维经过纺织、无纺工艺加工而成，具有热稳定性好、使用寿命长等特点。主要应用于各种高温烟气状况下的除尘器。
-          </div>
-          <div class="more"></div>
-        </div>
-      </li>
-      <li class="news-box">
-        <img src="@/images/newlist.jpg" class="middleCenter" alt="" />
-
-        <div class="text">
-          <div class="date">2021-05-07</div>
-          <div class="bt">除尘布袋应该如何选择？</div>
-          <div class="jsh">
-            1、常温布袋：常温布袋主要由涤纶、丙纶、亚克力等纤维经无纺、纺织工艺制成，具有透气性好、表面平整光滑、尺寸稳定性好、容易剥离粉尘等优良性能。主要用于一般工业企业有粉尘污染的行业除尘及常温烟气治理等领域。
-            2、中温布袋：随着***对环保重视程度的提高，尤其是近几年袋式除尘技术行业的飞速发展，中国开始使用进口的合成纤维开发了可以适应较为恶劣的工况条件，使用寿命的过滤材料。目前较为常见的中温滤材有芳纶纤维、PPS系列纤维通过浸扎、防油、防腐蚀工艺处理，从而达到理想的效果。
-            3、高温布袋：高温布袋主要由P84、膨体玻璃纤维、玻璃纤维等耐高温纤维经过纺织、无纺工艺加工而成，具有热稳定性好、使用寿命长等特点。主要应用于各种高温烟气状况下的除尘器。
-          </div>
+          <div class="bt">{{ item.title }}</div>
+          <div class="jsh" v-html="item.content"></div>
           <div class="more"></div>
         </div>
       </li>
@@ -108,8 +27,30 @@
 </template>
 
 <script>
+import { getNewsList } from '@/api/api'
 export default {
   name: 'NewsCenter',
+  data() {
+    return {
+      pageInfo: {
+        page: 1,
+        pageSize: 5,
+        keyword: '',
+      },
+      newsList: [],
+      defaultImg: require('@/assets/erroImg.png'),
+    }
+  },
+  mounted() {
+    this.loadNewsList()
+  },
+  methods: {
+    async loadNewsList() {
+      const res = await getNewsList(this.pageInfo)
+      console.log(res.data.records)
+      this.newsList = res.data.records
+    },
+  },
 }
 </script>
 
@@ -149,6 +90,10 @@ export default {
         }
       }
     }
+    img {
+      width: 300px;
+      height: 300px;
+    }
 
     .middleCenter {
       padding: 18px;
@@ -159,7 +104,7 @@ export default {
       transition: 0.5s;
       background: #fff;
       .more {
-        background: url(../images/more1.png) no-repeat center center;
+        background: url(../assets/more1.png) no-repeat center center;
         border: 1px solid #e0e0e0;
         width: 50px;
         height: 50px;

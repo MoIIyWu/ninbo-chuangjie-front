@@ -9,7 +9,7 @@
         <li>
           <div class="pic">
             <img
-              src="@/images/industry.jpg"
+              src="@/assets/industry.jpg"
               alt=""
               style="height: 100%; width: 100%"
             />

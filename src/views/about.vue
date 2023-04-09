@@ -10,7 +10,7 @@
           >
         </div>
       </div>
-    <img src="~@/images/banner.jpg" alt="" />
+    <img src="~@/assets/banner.jpg" alt="" />
   </div>
 </template>
 

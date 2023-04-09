@@ -5,51 +5,76 @@
         <div class="newpro_lcon">
           <div class="newpro_l_top">产品中心</div>
           <ul>
-            <li>
-              <a><i class="fa fa-angle-right"></i> 电磁脉冲阀 </a>
-              <div class="prodrop">
-                <a> 袋式淹没型 </a>
-              </div>
+            <li v-for="(item, index) in productCateList" :key="index">
+              <i class="fa fa-angle-right"></i>
+              <p>{{ item }}</p>
             </li>
           </ul>
-          <img src="@/images/weChatCode.jpg" />
+          <img src="@/assets/weChatCode.jpg" />
         </div>
       </div>
       <div class="newpro_r">
         <ul class="product-list">
           <li>
-            <img src="@/images/product.jpg" alt="" />
+            <img src="@/assets/product.jpg" alt="" />
           </li>
           <li>
-            <img src="@/images/product.jpg" alt="" />
+            <img src="@/assets/product.jpg" alt="" />
           </li>
           <li>
-            <img src="@/images/product.jpg" alt="" />
+            <img src="@/assets/product.jpg" alt="" />
           </li>
           <li>
-            <img src="@/images/product.jpg" alt="" />
+            <img src="@/assets/product.jpg" alt="" />
           </li>
           <li>
-            <img src="@/images/product.jpg" alt="" />
+            <img src="@/assets/product.jpg" alt="" />
           </li>
           <li>
-            <img src="@/images/product.jpg" alt="" />
-          </li>
-          <li>
-            <img src="@/images/product.jpg" alt="" />
-          </li>
-          <li>
-            <img src="@/images/product.jpg" alt="" />
+            <img src="@/assets/product.jpg" alt="" />
           </li>
         </ul>
       </div>
     </div>
+    <pager
+      class="paper-page"
+      :totalPage="totalPage"
+      :index="index"
+      @changeIndex="changeIndex"
+      v-if="initPager"
+    ></pager>
   </div>
 </template>
 
 <script>
+import { getProductCate } from '@/api/api'
+import pager from '@/components/Pager.vue'
 export default {
   name: 'ProductsShow',
+  components: {
+    pager,
+  },
+  data() {
+    return {
+      productCateList: [],
+      defaultImg: require('@/assets/erroImg.png'),
+      totalPage: 10, //总页数
+      index: 1, //当前页码,
+      initPager: true, //是否立即初始化组件
+    }
+  },
+  mounted() {
+    this.loadProductCate()
+  },
+  methods: {
+    async loadProductCate() {
+      const res = await getProductCate()
+      this.productCateList = res.data
+    },
+    changeIndex() {
+      //当页码放生改变时你想要做什么
+    },
+  },
 }
 </script>
 
@@ -72,14 +97,16 @@ export default {
         background-color: #c51f17;
       }
     }
-    ul li a {
-      width: 100%;
-      display: block;
+    ul li {
       padding: 15px 0;
       border-bottom: 1px solid #ccc;
-      color: #000;
       padding-left: 20px;
-      transition: all ease 0.4s;
+      p {
+        display: inline;
+        width: 100%;
+        color: #000;
+        transition: all ease 0.4s;
+      }
     }
   }
 
@@ -97,5 +124,9 @@ export default {
       }
     }
   }
+}
+.paper-page {
+  text-align: center;
+  padding-bottom: 50px;
 }
 </style>

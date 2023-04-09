@@ -1,33 +1,10 @@
 <template>
   <div class="container">
     <ul class="wrap">
-      <li>
-        <img src="@/images/test.jpg" alt="" />
-        <p>DMFY40SC</p>
-      </li>
-      <li>
-        <img src="@/images/test.jpg" alt="" />
-        <p>DMFY40SC</p>
-      </li>
-      <li>
-        <img src="@/images/test.jpg" alt="" />
-        <p>DMFY40SC</p>
-      </li>
-      <li>
-        <img src="@/images/test.jpg" alt="" />
-        <p>DMFY40SC</p>
-      </li>
-      <li>
-        <img src="@/images/test.jpg" alt="" />
-        <p>DMFY40SC</p>
-      </li>
-      <li>
-        <img src="@/images/test.jpg" alt="" />
-        <p>DMFY40SC</p>
-      </li>
-      <li>
-        <img src="@/images/test.jpg" alt="" />
-        <p>DMFY40SC</p>
+      <li v-for="item in productList" :key="item.id">
+        <!-- <img :src="item.fileUrl" alt="" /> -->
+        <img v-imagerror="defaultImg" :src="`${baseUrl}/common/open/download?name=${item.fileUrl}`" alt="" />
+        <p>{{ item.fileName }}</p>
       </li>
     </ul>
   </div>
@@ -39,9 +16,13 @@ export default {
   name: 'HomePage',
   data() {
     return {
-      page: 1,
-      pageSize: 5,
-      keyword: '',
+      defaultImg: require('@/assets/erroImg.png'),
+      pageInfo: {
+        page: 1,
+        pageSize: 6,
+        keyword: '',
+      },
+      productList:[]
     }
   },
   mounted() {
@@ -49,8 +30,10 @@ export default {
   },
   methods: {
     async loadProductList() {
-      const res = await getProductList(this.page, this.pageSize, this.keyword)
+      // const res = await getProductList(this.page, this.pageSize, this.keyword)
+      const res = await getProductList(this.pageInfo)
       console.log(res, '商品列表')
+      this.productList = res.data.records
     },
   },
 }

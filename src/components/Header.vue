@@ -4,7 +4,7 @@
       <div class="logo">
         <a title="宁波市创捷正凯机械设备有限公司"
           ><img
-            src="@/images/20230328205810.png"
+            src="@/assets/20230328205810.png"
             alt="宁波市创捷正凯机械设备有限公司"
         /></a>
       </div>
@@ -72,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 // 导航栏样式
 .header {
-  background: url('@/images/head.jpg') no-repeat;
+  background: url('@/assets/head.jpg') no-repeat;
   background-size: cover;
 }
 .header .wrap {

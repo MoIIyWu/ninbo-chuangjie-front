@@ -119,7 +119,7 @@ export default {
       font-size: 18px;
       line-height: 30px;
       color: #fff;
-      background: url(../images/service.png) no-repeat left top;
+      background: url(../assets/service.png) no-repeat left top;
       text-align: right;
       .p-01 {
         font-size: 16px;

@@ -22,7 +22,7 @@
             <div class="jsh">
               <p>
                 <img
-                  src="@/images/wechat1.jpg"
+                  src="@/assets/wechat1.jpg"
                   alt="1.jpg"
                 />
               </p>
@@ -36,7 +36,7 @@
             <div class="jsh">
               <p>
                 <img
-                  src="@/images/wechat22.jpg"
+                  src="@/assets/wechat22.jpg"
                   alt="2.jpg"
                 />
               </p>
@@ -89,7 +89,7 @@ export default {
 }
 
 .contact {
-  background: url('../images/contact.png') no-repeat center 205px;
+  background: url('../assets/contact.png') no-repeat center 205px;
 }
 
 .contact .contact-info {
