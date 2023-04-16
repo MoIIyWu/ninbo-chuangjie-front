@@ -2,37 +2,22 @@
   <div class="detail">
     <div class="wrap">
       <div class="container">
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
-        <a>袋式淹没型</a>
+        <a v-for="item in groupNameList" :key="item.id">{{ item.groupName }}</a>
       </div>
       <div class="footer">
         <div class="img-content">
-          <img src="@/assets/bigImg.jpg" />
+          <img
+            :src="`${baseUrl}/common/open/download?name=${productDetail.fileUrl}`"
+            alt=""
+          />
         </div>
         <div class="text">
-          <div class="bt">DMFY50S</div>
+          <div class="bt">{{ productDetail.fileName }}</div>
           <div class="jsh">
-            <p><b>&nbsp;&nbsp;口径</b>：<br /></p>
+            <p><b>&nbsp;&nbsp;说明</b>：{{ productDetail.manual }}<br /></p>
           </div>
-          <div class="button">
+          <div class="button" @click="$router.push('/contact')">
             详情咨询
-            <!--<div class="button2"> <a href="#">咨询客服</a> </div>-->
             <img src="@/assets/more5.png" alt="" />
           </div>
         </div>
@@ -42,27 +27,43 @@
       <div class="container">
         <ul>
           <li class="sel">产品参数</li>
-          <!--<li><a href="javascript:;">安装尺寸</a></li>
-                                <li><a href="javascript:;">型号说明</a></li>
-                                <li><a href="javascript:;">产品用途</a></li>
-                                <li><a href="javascript:;">下载文档</a></li>-->
         </ul>
       </div>
     </div>
     <div class="img">
-      <img src="@/assets/productParam.jpg" alt="" />
+      <img
+        :src="`${baseUrl}/common/open/download?name=${productDetail.productParam}`"
+        alt=""
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { getProductDetail, getAllProductCate } from '@/api/api'
 export default {
   name: 'productDetail',
-  data() {
-    return {}
+  mounted() {
+    this.loadProductDetail()
+    this.loadllProductCate()
   },
-  mounted() {},
-  methods: {},
+  data() {
+    return {
+      id: this.$route.params.id,
+      productDetail: {},
+      groupNameList: [],
+    }
+  },
+  methods: {
+    async loadProductDetail() {
+      const res = await getProductDetail(this.id)
+      this.productDetail = res.data
+    },
+    async loadllProductCate() {
+      const res = await getAllProductCate()
+      this.groupNameList = res.data
+    },
+  },
 }
 </script>
 

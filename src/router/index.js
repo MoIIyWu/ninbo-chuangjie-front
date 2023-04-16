@@ -35,8 +35,18 @@ const router = new VueRouter({
       component: () => import('@/views/contact.vue'),
     },
     {
-      path: '/productDetail',
+      path: '/productDetail/:id',
       component: () => import('@/views/productDetail.vue'),
+      props: (v) => {
+        return ({ id: v.params.id })
+      },
+    },
+    {
+      path: '/newsDetail/:id',
+      component: () => import('@/views/newsDetail.vue'),
+      props: (v) => {
+        return ({ id: v.params.id })
+      },
     },
   ],
 })

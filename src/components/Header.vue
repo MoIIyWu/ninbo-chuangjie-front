@@ -50,12 +50,17 @@
           </ul>
         </nav>
         <!-- 伸缩式动态搜索框 -->
-        <div class="header-search">
+        <div class="header-search" @keyup.enter="onSearchProduct">
           <div class="search-box">
             <a class="search-btn">
               <i class="fa fa-search" aria-hidden="true"></i>
             </a>
-            <input type="text" class="search-txt" placeholder="搜索" />
+            <input
+              v-model="pageInfo.keyword"
+              type="text"
+              class="search-txt"
+              placeholder="搜索产品"
+            />
           </div>
         </div>
       </div>
@@ -66,6 +71,24 @@
 <script>
 export default {
   name: 'HeaderPage',
+  data() {
+    return {
+      pageInfo: {
+        page: 1,
+        pageSize: 6,
+        keyword: '',
+      },
+    }
+  },
+  methods: {
+    async onSearchProduct() {
+      this.$router.push({
+        path: '/products',
+        query: { keyword: `${this.pageInfo.keyword}` },
+      })
+      this.pageInfo.keyword = ''
+    },
+  },
 }
 </script>
 

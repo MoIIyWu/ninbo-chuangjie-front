@@ -17,7 +17,9 @@ Object.keys(directives).forEach(key => {
   Vue.directive(key, directives[key])
 })
 
-Vue.prototype.baseUrl = "http://16af2f57.r7.vip.cpolar.cn/api"
+// Vue.prototype.baseUrl = "http://16af2f57.r7.vip.cpolar.cn/api"
+Vue.prototype.baseUrl = "http://192.168.31.230:8080/api"
+
 
 new Vue({
   render: h => h(App),

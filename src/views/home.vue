@@ -1,8 +1,7 @@
 <template>
   <div class="container">
     <ul class="wrap">
-      <li v-for="item in productList" :key="item.id">
-        <!-- <img :src="item.fileUrl" alt="" /> -->
+      <li v-for="item in productList" :key="item.id" @click="$router.push(`/productDetail/${item.id}`)">
         <img v-imagerror="defaultImg" :src="`${baseUrl}/common/open/download?name=${item.fileUrl}`" alt="" />
         <p>{{ item.fileName }}</p>
       </li>
@@ -30,9 +29,7 @@ export default {
   },
   methods: {
     async loadProductList() {
-      // const res = await getProductList(this.page, this.pageSize, this.keyword)
       const res = await getProductList(this.pageInfo)
-      console.log(res, '商品列表')
       this.productList = res.data.records
     },
   },
@@ -50,12 +47,12 @@ export default {
     flex-wrap: wrap;
     justify-content: space-around;
     li {
-      margin: 30px 10px;
+      margin: 15px 10px;
       border: 1px solid #ccc;
       cursor: pointer;
       img {
-        width: 300px;
-        height: 330px;
+        width: 280px;
+        height: 300px;
       }
       p {
         padding: 16px;

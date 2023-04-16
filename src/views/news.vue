@@ -19,7 +19,7 @@
           </div>
           <div class="bt">{{ item.title }}</div>
           <div class="jsh" v-html="item.content"></div>
-          <div class="more"></div>
+          <div class="more" @click="$router.push(`/newsDetail/${item.id}`)"></div>
         </div>
       </li>
     </ul>
@@ -49,7 +49,7 @@ export default {
       const res = await getNewsList(this.pageInfo)
       console.log(res.data.records)
       this.newsList = res.data.records
-    },
+    }
   },
 }
 </script>
@@ -69,11 +69,11 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin: auto 100px;
+  // margin: auto 100px;
   padding-top: 50px;
   padding-bottom: 80px;
   .news-box {
-    width: 300px;
+    width: 280px;
     margin-bottom: 25px;
     cursor: pointer;
     &:hover {
@@ -81,7 +81,7 @@ export default {
       box-shadow: 5px 5px 5px 5px #777;
       transition: all 1s;
       .middleCenter {
-        scale: 1.1;
+        scale: 1.05;
         transition: all 2s;
       }
       .text {
@@ -91,24 +91,24 @@ export default {
       }
     }
     img {
-      width: 300px;
-      height: 300px;
+      width: 280px;
+      height: 280px;
     }
 
     .middleCenter {
-      padding: 18px;
+      padding: 10px;
     }
 
     .text {
-      padding: 0px 15px 30px 15px;
+      padding: 0px 15px 25px 10px;
       transition: 0.5s;
       background: #fff;
       .more {
         background: url(../assets/more1.png) no-repeat center center;
         border: 1px solid #e0e0e0;
-        width: 50px;
-        height: 50px;
-        margin: 8px;
+        width: 45px;
+        height: 45px;
+        margin: 5px;
         float: right;
       }
       .date {
@@ -129,7 +129,7 @@ export default {
         font-size: 16px;
         color: #575757;
         line-height: 25px;
-        height: 48px;
+        height: 40px;
         overflow: hidden;
       }
     }
