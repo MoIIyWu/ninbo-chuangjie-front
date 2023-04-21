@@ -27,7 +27,7 @@ export default {
     return {
       pageNum: 1,
       pageSize: 10,
-      productGroup:[]
+      productGroup: [],
     }
   },
   props: {
@@ -44,7 +44,7 @@ export default {
     async onClick(id) {
       const res = await getProductPageByGroup(this.pageNum, this.pageSize, id)
       this.productGroup = res.data
-      this.$emit("getProductGroup", this.productGroup);
+      this.$emit('getProductGroup', this.productGroup)
     },
   },
 }

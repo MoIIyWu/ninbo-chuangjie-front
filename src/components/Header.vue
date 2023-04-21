@@ -2,10 +2,10 @@
   <div class="header">
     <div class="wrap">
       <div class="logo">
-        <a title="宁波市创捷正凯机械设备有限公司"
+        <a title="宁波新慧正凯气动除配件有限公司"
           ><img
-            src="@/assets/20230328205810.png"
-            alt="宁波市创捷正凯机械设备有限公司"
+            src="@/assets/宁波新慧正凯气动除配件有限公司.png"
+            alt="宁波新慧正凯气动除配件有限公司"
         /></a>
       </div>
       <div class="header-right">
@@ -59,7 +59,7 @@
               v-model="pageInfo.keyword"
               type="text"
               class="search-txt"
-              placeholder="搜索产品"
+              placeholder="搜索产品型号"
             />
           </div>
         </div>
@@ -81,7 +81,7 @@ export default {
     }
   },
   methods: {
-    async onSearchProduct() {
+    onSearchProduct() {
       this.$router.push({
         path: '/products',
         query: { keyword: `${this.pageInfo.keyword}` },

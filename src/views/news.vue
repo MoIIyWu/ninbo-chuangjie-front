@@ -47,7 +47,6 @@ export default {
   methods: {
     async loadNewsList() {
       const res = await getNewsList(this.pageInfo)
-      console.log(res.data.records)
       this.newsList = res.data.records
     }
   },

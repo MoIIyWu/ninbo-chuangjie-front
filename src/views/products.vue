@@ -42,11 +42,16 @@
       </div>
       <div class="newpro_r">
         <ul class="product-list">
-          <li v-for="item in productGroup" :key="item.id">
+          <li
+            v-for="item in productGroup"
+            :key="item.id"
+            @click="$router.push(`/productDetail/${item.id}`)"
+          >
             <img
               :src="`${baseUrl}/common/open/download?name=${item.fileUrl}`"
               alt=""
             />
+            <p>{{ item.fileName }}</p>
           </li>
         </ul>
       </div>
@@ -62,7 +67,7 @@
 </template>
 
 <script>
-import { getAllProductCateTree,getProductList } from '@/api/api'
+import { getAllProductCateTree, getProductList } from '@/api/api'
 import pager from '@/components/Pager.vue'
 import Menu from '@/components/Menu.vue'
 import MenuItem from '@/components/MenuItem'
@@ -82,7 +87,10 @@ export default {
       pageInfo: {
         page: 1,
         pageSize: 6,
-        keyword: '',
+        keyword:
+          this.$route.query.keyword == undefined
+            ? ''
+            : this.$route.query.keyword,
       },
       defaultImg: require('@/assets/erroImg.png'),
       totalPage: '', //总页数
@@ -99,14 +107,14 @@ export default {
       const res = await getAllProductCateTree()
       this.productCateList = res.data
     },
-    changeIndex() {
-      //当页码放生改变时你想要做什么
+    changeIndex(pagerIndex) {
+      this.pageInfo.page = pagerIndex
+      this.loadProductList()
     },
     async loadProductList() {
       const res = await getProductList(this.pageInfo)
       this.productGroup = res.data.records
       this.totalPage = res.data.total
-      console.log(this.totalPage)
     },
     getProductGroup(data) {
       this.productGroup = data.records
@@ -174,6 +182,16 @@ export default {
         width: 300px;
         margin-bottom: 20px;
         cursor: pointer;
+        border: 1px solid #ccc;
+        img {
+          width: 300px;
+          height: 185px;
+        }
+        p {
+          padding: 16px;
+          font-size: 16px;
+          text-align: center;
+        }
       }
     }
   }

@@ -49,19 +49,14 @@
         </div>
       </div>
       <div class="copyright">
-        Copyright © 2023- 2023 宁波市创捷正凯机械设备有限公司&nbsp;&nbsp; All
+        Copyright &copy; 2023- 2023 宁波新慧正凯气动除配件有限公司&nbsp;&nbsp; All
         rights reserved 备案号：<a
           href="https://beian.miit.gov.cn/"
           target="_blank"
-          >浙ICP备2023005381号-1</a
+          >*****************</a
         >
         <p>地址：浙江省宁波市江北区庄桥街道东邵村</p>
         <p>电话： 13586622658</p>
-        <p>
-          <a href="http://www.400301.com/" target="_blank"
-            >腾云建站仅向商家提供技术服务</a
-          >&nbsp;&nbsp;<a href="sitemap.xml" target="_blank">网站地图</a>
-        </p>
       </div>
     </div>
   </section>

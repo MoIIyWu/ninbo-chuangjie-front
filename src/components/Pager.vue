@@ -2,11 +2,11 @@
     <div>
       <div class="pager" v-if="totalPage > 1">
         <div>
-          <a v-if="pageArr.length > 1"  href="javascript:void(0)" v-on:click="setPage('first')" >首页</a>
+          <a v-if="pageArr.length > 1"  href="javascript:void(0)" v-on:click="setPage('first')">首页</a>
           <a v-if="pageArr.length > 1" href="javascript:void(0)" v-on:click="setPage('prev')">上一页</a>
-          <a v-if="index-4 >1 " v-on:click="setPage(1)" v-bind:class="[(1 == index ? 'active':'')]" href="javascript:void(0)"> 1</a>
+          <a v-if="index-4 >1 " v-on:click="setPage(1)" v-bind:class="[(1 == currNum ? 'active':'')]" href="javascript:void(0)"> 1</a>
           <a v-if="(index-4 >1) && pageArr.length > 9" href="javascript:void(0)" >...</a>
-          <a href="javascript:void(0)"  v-on:click="setPage(val)"  v-bind:class="[(val == index ? 'active':'')]" v-for="(val, pageindex) in pageArrPager" v-bind:key="pageindex" >{{val}}</a>
+          <a href="javascript:void(0)"  v-on:click="setPage(val)"  v-bind:class="[(val == currNum ? 'active':'')]" v-for="(val, pageindex) in pageArrPager" v-bind:key="pageindex" >{{val}}</a>
           <a v-if="pageArr.length > index+4"  href="javascript:void(0)" >...</a>
           <a v-if="pageArr.length > 9 && pageArr.length > index+3"   v-on:click="setPage(pageArr.length)"  v-bind:class="[(pageArr.length == index ? 'active':'')]" href="javascript:void(0)" >{{pageArr.length}}</a>
           <a v-if="pageArr.length > 1"  href="javascript:void(0)" v-on:click="setPage('next')">下一页</a>
@@ -26,7 +26,8 @@
           pageArr:[],
           pageArrPager:[],
           pagerIndex:this.index,
-          goPageIndex:''
+          goPageIndex:'',
+          currNum:1
         }
       },
       props:['totalPage','index'],
@@ -34,17 +35,22 @@
         setPage(val){
           if(val =='first'){ // 首页
             this.pagerIndex =1;
+            this.currNum = 1
           }else if(val == 'prev'){ // 上一页
             if(this.pagerIndex >1){
+              this.currNum--
               this.pagerIndex = this.pagerIndex - 1
             }
           }else if(val == 'next'){ // 下一页
             if(this.pagerIndex <this.totalPage){
+              this.currNum+=1
               this.pagerIndex = this.pagerIndex + 1
             }
           }else if(val == 'last'){ // 尾页
             this.pagerIndex = this.pageArr.length
+            this.currNum = this.pageArr.length
           }else{
+            this.currNum = val
             this.pagerIndex = parseInt(val)
           }
           this.getData()
@@ -81,6 +87,7 @@
           }
           else{
             this.pagerIndex = goPageIndex;
+            this.currNum = goPageIndex
             this.getData();
           }
    
